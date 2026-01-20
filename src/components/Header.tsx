@@ -60,11 +60,9 @@ const Header = () => {
               <img alt="Shri Hari Shipping Solutions" className="h-12 w-auto mix-blend-multiply" src="/lovable-uploads/3f1d892d-9785-4ee1-8649-4e3ecdb73b93.png" />
               <div className="hidden sm:block">
                 <div className="font-display font-bold text-xl text-primary leading-tight group-hover:text-secondary transition-colors">
-                  Shri Hari
+                  Shri Hari Shipping Solutions  
                 </div>
-                <div className="text-[10px] text-muted-foreground font-semibold tracking-widest uppercase">
-                  Shipping Solutions
-                </div>
+                
               </div>
             </a>
 
