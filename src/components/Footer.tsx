@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Linkedin, Facebook, Twitter } from "lucide-react";
-import logo from "@/assets/logo.png";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,13 +11,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logo} alt="Shri Hari Shipping Solutions" className="h-12 w-auto brightness-0 invert" />
+              <Logo size={48} className="[&_circle]:stroke-white [&_path]:stroke-white [&_path]:fill-white/80" />
               <div>
-                <div className="font-display font-bold text-lg leading-tight">
+                <div className="font-display font-bold text-xl leading-tight">
                   Shri Hari
                 </div>
-                <div className="text-xs text-white/70 font-medium tracking-wide">
-                  SHIPPING SOLUTIONS
+                <div className="text-[10px] text-white/70 font-semibold tracking-widest uppercase">
+                  Shipping Solutions
                 </div>
               </div>
             </div>
