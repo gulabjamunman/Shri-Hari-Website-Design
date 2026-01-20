@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Logo from "@/components/Logo";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -57,7 +57,11 @@ const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center gap-3 group">
-              <Logo size={48} />
+              <img 
+                src={logo} 
+                alt="Shri Hari Shipping Solutions" 
+                className="h-12 w-auto mix-blend-multiply"
+              />
               <div className="hidden sm:block">
                 <div className="font-display font-bold text-xl text-primary leading-tight group-hover:text-secondary transition-colors">
                   Shri Hari
