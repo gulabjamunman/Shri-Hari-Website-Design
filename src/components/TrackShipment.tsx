@@ -3,17 +3,16 @@ import { Search, Package, Truck, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const TrackShipment = () => {
+interface TrackShipmentProps {
+  onTrackClick: () => void;
+}
+
+const TrackShipment = ({ onTrackClick }: TrackShipmentProps) => {
   const [trackingNumber, setTrackingNumber] = useState("");
-  const [isTracking, setIsTracking] = useState(false);
 
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault();
-    if (trackingNumber) {
-      setIsTracking(true);
-      // In production, this would call an API
-      setTimeout(() => setIsTracking(false), 1500);
-    }
+    onTrackClick();
   };
 
   return (
@@ -49,8 +48,8 @@ const TrackShipment = () => {
                 className="h-14 pl-12 text-base bg-white border-0 focus-visible:ring-accent"
               />
             </div>
-            <Button type="submit" variant="hero" size="xl" disabled={isTracking}>
-              {isTracking ? "Tracking..." : "Track Now"}
+            <Button type="submit" variant="hero" size="xl">
+              Track Now
             </Button>
           </form>
 

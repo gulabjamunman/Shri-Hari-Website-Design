@@ -4,9 +4,10 @@ import heroImage from "@/assets/hero-logistics.jpg";
 
 interface HeroProps {
   onQuoteClick: () => void;
+  onTrackClick: () => void;
 }
 
-const Hero = ({ onQuoteClick }: HeroProps) => {
+const Hero = ({ onQuoteClick, onTrackClick }: HeroProps) => {
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center">
       {/* Background image with overlay */}
@@ -48,7 +49,7 @@ const Hero = ({ onQuoteClick }: HeroProps) => {
               Get Free Quote
               <ArrowRight size={20} />
             </Button>
-            <Button variant="heroOutline" size="xl">
+            <Button variant="heroOutline" size="xl" onClick={onTrackClick}>
               Track Shipment
             </Button>
           </div>
