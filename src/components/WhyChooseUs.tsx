@@ -3,7 +3,7 @@ import { Shield, Clock, DollarSign, Users, Award, Headphones } from "lucide-reac
 const reasons = [
   {
     icon: Award,
-    title: "15+ Years Experience",
+    title: "10+ Years Experience",
     description: "A decade and a half of expertise in multimodal logistics gives us unmatched industry knowledge.",
   },
   {
