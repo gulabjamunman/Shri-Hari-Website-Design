@@ -9,26 +9,30 @@ import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QuotePanel from "@/components/QuotePanel";
+import TrackPanel from "@/components/TrackPanel";
 import { useQuotePanel } from "@/hooks/useQuotePanel";
+import { useTrackPanel } from "@/hooks/useTrackPanel";
 
 const Index = () => {
-  const { isOpen, setIsOpen, openQuotePanel } = useQuotePanel();
+  const { isOpen: isQuoteOpen, setIsOpen: setQuoteOpen, openQuotePanel } = useQuotePanel();
+  const { isOpen: isTrackOpen, setIsOpen: setTrackOpen, openTrackPanel } = useTrackPanel();
 
   return (
     <div className="min-h-screen bg-background">
       <Header onQuoteClick={openQuotePanel} />
       <main>
-        <Hero onQuoteClick={openQuotePanel} />
+        <Hero onQuoteClick={openQuotePanel} onTrackClick={openTrackPanel} />
         <Stats />
         <Services />
         <WhyChooseUs />
         <Clients />
-        <TrackShipment />
+        <TrackShipment onTrackClick={openTrackPanel} />
         <Blog />
         <Contact />
       </main>
       <Footer />
-      <QuotePanel open={isOpen} onOpenChange={setIsOpen} />
+      <QuotePanel open={isQuoteOpen} onOpenChange={setQuoteOpen} />
+      <TrackPanel open={isTrackOpen} onOpenChange={setTrackOpen} />
     </div>
   );
 };
