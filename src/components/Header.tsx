@@ -21,7 +21,11 @@ const navLinks = [{
   name: "Contact",
   href: "#contact"
 }];
-const Header = () => {
+interface HeaderProps {
+  onQuoteClick: () => void;
+}
+
+const Header = ({ onQuoteClick }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
@@ -76,7 +80,7 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={onQuoteClick}>
                 Get a Quote
               </Button>
             </div>
@@ -94,7 +98,7 @@ const Header = () => {
               {navLinks.map(link => <a key={link.name} href={link.href} className="text-foreground/80 hover:text-secondary font-medium py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.name}
                 </a>)}
-              <Button variant="hero" className="mt-4 w-full">
+              <Button variant="hero" className="mt-4 w-full" onClick={() => { setIsMobileMenuOpen(false); onQuoteClick(); }}>
                 Get a Quote
               </Button>
             </nav>
