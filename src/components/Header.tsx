@@ -24,8 +24,9 @@ const navLinks = [{
 interface HeaderProps {
   onQuoteClick: () => void;
 }
-
-const Header = ({ onQuoteClick }: HeaderProps) => {
+const Header = ({
+  onQuoteClick
+}: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
@@ -49,9 +50,7 @@ const Header = ({ onQuoteClick }: HeaderProps) => {
               sales@shriharishipping.com
             </a>
           </div>
-          <div className="text-primary-foreground/80">
-            Delivering Excellence Since 2009 | 15+ Years of Trust
-          </div>
+          <div className="text-primary-foreground/80">Delivering Excellence Since 2014 | 10+ Years of Trust</div>
         </div>
       </div>
 
@@ -98,7 +97,10 @@ const Header = ({ onQuoteClick }: HeaderProps) => {
               {navLinks.map(link => <a key={link.name} href={link.href} className="text-foreground/80 hover:text-secondary font-medium py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.name}
                 </a>)}
-              <Button variant="hero" className="mt-4 w-full" onClick={() => { setIsMobileMenuOpen(false); onQuoteClick(); }}>
+              <Button variant="hero" className="mt-4 w-full" onClick={() => {
+            setIsMobileMenuOpen(false);
+            onQuoteClick();
+          }}>
                 Get a Quote
               </Button>
             </nav>
