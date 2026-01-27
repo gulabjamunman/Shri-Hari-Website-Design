@@ -2,7 +2,11 @@ import { ArrowRight, Ship, Truck, Train } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-logistics.jpg";
 
-const Hero = () => {
+interface HeroProps {
+  onQuoteClick: () => void;
+}
+
+const Hero = ({ onQuoteClick }: HeroProps) => {
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center">
       {/* Background image with overlay */}
@@ -40,7 +44,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={onQuoteClick}>
               Get Free Quote
               <ArrowRight size={20} />
             </Button>

@@ -8,13 +8,17 @@ import TrackShipment from "@/components/TrackShipment";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import QuotePanel from "@/components/QuotePanel";
+import { useQuotePanel } from "@/hooks/useQuotePanel";
 
 const Index = () => {
+  const { isOpen, setIsOpen, openQuotePanel } = useQuotePanel();
+
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onQuoteClick={openQuotePanel} />
       <main>
-        <Hero />
+        <Hero onQuoteClick={openQuotePanel} />
         <Stats />
         <Services />
         <WhyChooseUs />
@@ -24,6 +28,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <QuotePanel open={isOpen} onOpenChange={setIsOpen} />
     </div>
   );
 };
