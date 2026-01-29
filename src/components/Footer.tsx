@@ -43,10 +43,16 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div className="">
+          <div>
             <h4 className="font-display font-bold text-lg mb-5">Services</h4>
             <ul className="space-y-3">
-              {["Road Transport", "Rail Freight", "Domestic Shipping", "EXIM Services", "Warehousing", "Customs Clearance"].map(service => {})}
+              {["Road Transport", "Rail Freight", "Domestic Shipping", "EXIM (Import/Export)"].map(service => (
+                <li key={service}>
+                  <a href="#services" className="text-white/70 hover:text-accent transition-colors text-sm">
+                    {service}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
