@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="">
             <h4 className="font-display font-bold text-lg mb-5">Services</h4>
             <ul className="space-y-3">
               {["Road Transport", "Rail Freight", "Domestic Shipping", "EXIM Services", "Warehousing", "Customs Clearance"].map(service => {})}
