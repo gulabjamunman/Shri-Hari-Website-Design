@@ -4,7 +4,7 @@ const reasons = [
   {
     icon: Award,
     title: "10+ Years Experience",
-    description: "A decade and a half of expertise in multimodal logistics gives us unmatched industry knowledge.",
+    description: "A decade of expertise in multimodal logistics gives us unmatched industry knowledge.",
   },
   {
     icon: DollarSign,
