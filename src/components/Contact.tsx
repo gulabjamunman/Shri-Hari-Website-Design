@@ -4,42 +4,44 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
-    message: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+    await new Promise(resolve => setTimeout(resolve, 1000));
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
-    
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: ""
+    });
     setIsSubmitting(false);
   };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
-
-  return (
-    <section id="contact" className="section-padding bg-muted">
+  return <section id="contact" className="section-padding bg-muted">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left column - Info */}
@@ -64,9 +66,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                  <a href="tel:+918078646927" className="text-muted-foreground hover:text-secondary transition-colors">
-                    +91 80786 46927
-                  </a>
+                  
                   <br />
                   <a href="tel:+919214339415" className="text-muted-foreground hover:text-secondary transition-colors">
                     +91 92143 39415
@@ -110,79 +110,33 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <Input
-                    name="name"
-                    placeholder="Your Name *"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
+                  <Input name="name" placeholder="Your Name *" value={formData.name} onChange={handleChange} required className="h-12" />
                 </div>
                 <div>
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Email Address *"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
+                  <Input name="email" type="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} required className="h-12" />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <Input
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="h-12"
-                  />
+                  <Input name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="h-12" />
                 </div>
                 <div>
-                  <Input
-                    name="company"
-                    placeholder="Company Name"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="h-12"
-                  />
+                  <Input name="company" placeholder="Company Name" value={formData.company} onChange={handleChange} className="h-12" />
                 </div>
               </div>
               <div>
-                <Textarea
-                  name="message"
-                  placeholder="Tell us about your logistics requirements..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="resize-none"
-                />
+                <Textarea name="message" placeholder="Tell us about your logistics requirements..." value={formData.message} onChange={handleChange} rows={4} className="resize-none" />
               </div>
-              <Button
-                type="submit"
-                variant="hero"
-                size="lg"
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
+              <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : <>
                     Send Message
                     <Send size={18} />
-                  </>
-                )}
+                  </>}
               </Button>
             </form>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
