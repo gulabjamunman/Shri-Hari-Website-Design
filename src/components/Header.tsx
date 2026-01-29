@@ -41,8 +41,7 @@ const Header = ({
       <div className="hidden lg:block bg-primary text-primary-foreground py-2">
         <div className="container-wide flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+918078646927" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Phone size={14} />
+            <a href="tel:+918078646927" className="flex items-center gap-2 hover:text-accent transition-colors">+91 92143 39415<Phone size={14} />
               +91 80786 46927
             </a>
             <a href="mailto:sales@shriharishipping.com" className="flex items-center gap-2 hover:text-accent transition-colors">
@@ -71,10 +70,7 @@ const Header = ({
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map(link => <a key={link.name} href={link.href} className="text-foreground/80 hover:text-secondary font-medium transition-colors relative group">
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
-                </a>)}
+              {navLinks.map(link => {})}
             </nav>
 
             {/* CTA Button */}
