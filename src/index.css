@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 /* Shri Hari Shipping Solutions Design System
    Colors: Deep Navy (trust), Crimson Red (energy/brand), Gold (premium/accent)
