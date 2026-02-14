@@ -79,6 +79,8 @@ const QuotePanel = ({ open, onOpenChange }: QuotePanelProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+  console.log("SUBMIT FUNCTION TRIGGERED");
+
     if (isSubmitting) return;
 
     setIsSubmitting(true);
