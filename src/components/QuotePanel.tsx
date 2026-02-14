@@ -85,7 +85,7 @@ const QuotePanel = ({ open, onOpenChange }: QuotePanelProps) => {
 
     try {
       const response = await fetch(
-        "https://shriharishipping.com/send-quote.php",
+        "https://mgmt.shriharishipping.com/test-app/send-quote.php",
         {
           method: "POST",
 
