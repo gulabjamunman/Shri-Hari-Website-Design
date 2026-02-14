@@ -20,26 +20,90 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  /*
+  ==========================================
+  REAL FORM SUBMISSION TO YOUR PHP BACKEND
+  ==========================================
+  */
+
   const handleSubmit = async (e: React.FormEvent) => {
 
     e.preventDefault();
 
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
 
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours."
-    });
+      const response = await fetch(
+        "https://mgmt.shriharishipping.com/test-app/send-quote.php",
+        {
+          method: "POST",
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      message: ""
-    });
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+
+            // Required by backend validation
+            origin: "Not specified",
+            destination: "Not specified",
+            cargoType: "General inquiry",
+
+            weight: "",
+            date: "",
+            transportModes: "",
+
+            notes: formData.message
+
+          }),
+
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+
+        toast({
+          title: "Quote Request Sent",
+          description: "Our team will contact you shortly.",
+        });
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: ""
+        });
+
+      } else {
+
+        toast({
+          title: "Submission Failed",
+          description: result.message || "Could not send request.",
+          variant: "destructive",
+        });
+
+      }
+
+    } catch (error) {
+
+      toast({
+        title: "Network Error",
+        description: "Could not connect to server.",
+        variant: "destructive",
+      });
+
+    }
 
     setIsSubmitting(false);
 
@@ -64,7 +128,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
 
-          {/* Left column */}
+          {/* LEFT SIDE */}
 
           <div>
 
@@ -82,7 +146,7 @@ const Contact = () => {
               and cost-effective shipping solutions.
             </p>
 
-            {/* Contact Info */}
+            {/* CONTACT INFO */}
 
             <div className="space-y-6">
 
@@ -164,7 +228,7 @@ const Contact = () => {
 
           </div>
 
-          {/* Right column */}
+          {/* RIGHT SIDE FORM */}
 
           <div className="bg-card rounded-2xl p-8 shadow-xl border border-border">
 
@@ -233,12 +297,14 @@ const Contact = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending..." : (
-                  <>
-                    Send Message
-                    <Send size={18} />
-                  </>
-                )}
+                {isSubmitting
+                  ? "Sending..."
+                  : (
+                    <>
+                      Send Message
+                      <Send size={18} />
+                    </>
+                  )}
               </Button>
 
             </form>
