@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Clients from "@/components/Clients";
 import TrackShipment from "@/components/TrackShipment";
-{/*import Blog from "@/components/Blog";*/}
+import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QuotePanel from "@/components/QuotePanel";
